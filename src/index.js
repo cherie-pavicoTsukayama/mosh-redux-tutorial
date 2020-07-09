@@ -1,18 +1,17 @@
-import { Map } from 'immutable';
+import store from './store';
 
-let book = {title: "Harry Potter"};
+store.dispatch({
+  type: "bugAdded",
+  payload: {
+    description: "Bug1"
+  }
+})
 
-function publish(book) {
-  book.isPublished = true;
-}
-
-publish(book);
-
-console.log(book);
-
-{
+store.dispatch({
   type: "bugRemoved",
   payload: {
     id: 1
   }
-}
+})
+
+console.log(store.getState())

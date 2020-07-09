@@ -12,7 +12,7 @@ export default function reducer(state = [], action) { // set state to a default 
       }
     ]
   } else if (action.type ==='bugRemoved') {
-    return state.filter(bug => bug !== action.payload.id); //filter removes the item and returns an array without that item.
+    return state.filter(bug => bug.id !== action.payload.id); //filter removes the item and returns an array without that item.
   } else {
     return state;
   }
