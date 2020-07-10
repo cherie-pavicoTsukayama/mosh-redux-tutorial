@@ -1,6 +1,8 @@
+import * as actions from './actionTypes'; //the * imports everything from actionTypes.js and uses 'action' as an object. Everything that is imported is now a property of action.
+
 let lastId = 0;
 export default function reducer(state = [], action) { // set state to a default [], this is called a default argument.
-  if (action.type === 'bugAdded') {
+  if (action.type === actions.BUG_ADDED) {
     return [
       ...state, //spread operator ... makes a shallow copy of the state ojbect.
       // putting the next object right after it adds the new object after the shallow copy of the array.
@@ -11,7 +13,7 @@ export default function reducer(state = [], action) { // set state to a default 
         resolved: false
       }
     ]
-  } else if (action.type ==='bugRemoved') {
+  } else if (action.type === actions.BUG_REMOVED) {
     return state.filter(bug => bug.id !== action.payload.id); //filter removes the item and returns an array without that item.
   } else {
     return state;
