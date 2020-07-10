@@ -14,7 +14,7 @@ store.dispatch({
   }
 })
 
-unsubscribe();
+unsubscribe(); // calling unsubscribe here will stop the subscription. It won't run subscribe for every dispatch just for the ones above unsubscribe
 
 store.dispatch({
   type: "bugRemoved",
